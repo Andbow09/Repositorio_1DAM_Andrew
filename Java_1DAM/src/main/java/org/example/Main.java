@@ -34,7 +34,10 @@ public class Main {
         //Practica3 practica3 = new Practica3();
         //practica3.practica3();
 
-        Practica4 practica4 = new Practica4();
-        practica4.practica4();
+        //Practica4 practica4 = new Practica4();
+        //practica4.practica4();
+
+        //cosasString caracteres = new cosasString();
+        //caracteres.caracteres();
     }
 }
