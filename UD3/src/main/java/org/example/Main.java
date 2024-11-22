@@ -29,10 +29,15 @@ public class Main {
 //        Practica2 practica2 = new Practica2();
 //        practica2.practica2();
 
-        Anid anid = new Anid();
+//        Anid anid = new Anid();
 //        anid.anid1();
 //        anid.anid2();
 //        anid.anid3();
-        anid.anid4();
+//        anid.anid4();
+
+        Matrices1 matrices1 = new Matrices1();
+//        matrices1.ejer1();
+//        matrices1.ejer2();
+        matrices1.ejer3();
     }
 }
