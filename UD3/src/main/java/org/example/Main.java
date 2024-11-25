@@ -35,9 +35,12 @@ public class Main {
 //        anid.anid3();
 //        anid.anid4();
 
-        Matrices1 matrices1 = new Matrices1();
+//        Matrices1 matrices1 = new Matrices1();
 //        matrices1.ejer1();
 //        matrices1.ejer2();
-        matrices1.ejer3();
+//        matrices1.ejer3();
+
+        Practica3 practica3 = new Practica3();
+        practica3.practica3();
     }
 }
