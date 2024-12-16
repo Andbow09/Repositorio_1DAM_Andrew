@@ -11,7 +11,7 @@ public class Main {
     static Scanner in;
 
     /**
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -22,6 +22,12 @@ public class Main {
 
         try {
             numCasos = in.nextInt();
+
+            if (numCasos == 0) {
+                System.out.println("Saliendo...");
+                return;
+            }
+
             in.nextLine();
         } catch (InputMismatchException err) {
             System.out.println("Introduzca un valor válido.");
@@ -48,6 +54,7 @@ public class Main {
 
     /**
      *
+     * @return
      */
     public static String[] introducirCarne() {
         System.out.print("Introduce la cantidad de carne de conejo y caballo (<conejo> <caballo>): ");
@@ -56,7 +63,7 @@ public class Main {
         String[] carne = carnes.split(" ");
 
         for (int i = 0; i < carne.length; i++) {
-            boolean num = carne[i].matches("//d");
+            boolean num = carne[i].matches("\\d{1,2}");
 
             if (!num) {
                 System.out.println("Introduzca números.");
