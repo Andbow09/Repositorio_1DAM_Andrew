@@ -136,10 +136,10 @@ public class Metodos {
         return valor;
     }
 
-    public static float masVentas() {
-
-
-        return "";
-    }
+//    public static float masVentas() {
+//
+//
+//        return "";
+//    }
 }
 
