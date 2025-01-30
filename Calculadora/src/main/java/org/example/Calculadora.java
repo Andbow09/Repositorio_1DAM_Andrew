@@ -4,7 +4,7 @@ public class Calculadora {
     private int num1;
     private int num2;
 
-    public Calculadora (int a, String b){
+    public Calculadora (int a, int b){
         num1=a;
         num2=b;
     }

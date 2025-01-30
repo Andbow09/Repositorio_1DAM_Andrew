@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Libro {
     private String titulo;
     private String autor;
@@ -10,15 +12,19 @@ public class Libro {
     private static int lib_cant;
     private static int lib_disp;
     private Estudiante estudiantePrestado;
+    private Editorial editorial;
+
 
     public Libro(String titulo, String autor) {
         this.titulo = titulo;
         this.autor = autor;
-        id = lib+calcularID(cont_id);
+        id = lib + calcularID(cont_id);
         this.disp = true;
         cont_id++;
         lib_cant++;
         lib_disp++;
+        estudiantePrestado = null;
+        this.editorial = editorial;
     }
 
     public String calcularID(int cont_id) {
@@ -42,7 +48,7 @@ public class Libro {
     }
 
     public void prestar(Estudiante estudiante) {
-        if (disp) {
+        if (disp && estudiante.getLibrosPrestados().contains(this)) {
             disp = false;
             System.out.println("El libro '" + getTitulo() + "' ha sido prestado a " + estudiante.getNombre());
             lib_disp--;

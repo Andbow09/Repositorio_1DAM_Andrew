@@ -29,23 +29,29 @@ public class Main {
 //        System.out.println(est1);
 //        System.out.println(est2);
 
-        Libro lib1 = new Libro("libro1","andy");
-        Libro lib2 = new Libro("libro2","andy");
-        Libro lib3 = new Libro("libro3","andy");
-        Libro lib4 = new Libro("libro4","andy");
+//        Libro lib1 = new Libro("libro1","andy");
+//        Libro lib2 = new Libro("libro2","andy");
+//        Libro lib3 = new Libro("libro3","andy");
+//        Libro lib4 = new Libro("libro4","andy");
+//
+//        System.out.println(lib1);
+//        System.out.println(lib2);
+//        System.out.println(lib3);
+//        System.out.println(lib4);
+//        System.out.println("Total de libros creados: " + lib1.getTotalLibros());
+//        System.out.println("Total de libros disponibles: " + lib1.getLibrosDisponibles());
+//        lib1.prestar();
+//        lib2.prestar();
+//        System.out.println("Total de libros disponibles tras prestación: " + lib1.getLibrosDisponibles());
+//        lib1.prestar();
+//        lib1.devolver();
+//        System.out.println("Total de libros disponibles tras devolución: " + lib1.getLibrosDisponibles());
+//        lib1.devolver();
 
-        System.out.println(lib1);
-        System.out.println(lib2);
-        System.out.println(lib3);
-        System.out.println(lib4);
-        System.out.println("Total de libros creados: " + lib1.getTotalLibros());
-        System.out.println("Total de libros disponibles: " + lib1.getLibrosDisponibles());
-        lib1.prestar();
-        lib2.prestar();
-        System.out.println("Total de libros disponibles tras prestación: " + lib1.getLibrosDisponibles());
-        lib1.prestar();
-        lib1.devolver();
-        System.out.println("Total de libros disponibles tras devolución: " + lib1.getLibrosDisponibles());
-        lib1.devolver();
+        Persona per1 = new Persona("nombre", "apellido", "123456789G","80Kg", 30, "ciudad", "profesion");
+        Equipo eq1 = new Equipo("equipo");
+        System.out.println(eq1);
+
+
     }
 }

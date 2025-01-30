@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Estudiante {
     public static int cont_est = 0;
     public static final String email_form = "^[A-Za-z09+_.-]@gmail.com";
@@ -7,15 +9,17 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
+    private ArrayList<Libro> librosPrestados;
 
-    public Estudiante estudiantePrestado() {
-
-    }
+//    public Estudiante estudiantePrestado() {
+//
+//    }
 
     public Estudiante(String nombre) {
         this.nombre = nombre;
         cont_est++;
         this.nia = cont_est;
+        librosPrestados = new ArrayList<>();
     }
 
     public Estudiante(String nombre, String curso, String email) {
@@ -24,6 +28,7 @@ public class Estudiante {
         this.email = email;
         cont_est++;
         this.nia = cont_est;
+        librosPrestados = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -50,9 +55,25 @@ public class Estudiante {
         this.email = email;
     }
 
+    public void setLibrosPrestados(ArrayList<Libro> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    public void anadirLibro(Libro libro) {
+        librosPrestados.add(libro);
+    }
+
+    public void eliminarLibro(Libro libro) {
+        librosPrestados.remove(libro);
+    }
+
     @Override
     public String toString() {
-        return "Estudiante[" + nombre + "," + curso + "," + nia + "," + email +"]";
+        if (!librosPrestados.isEmpty()) {
+            return "Estudiante[Nombre: " + nombre + ", Curso: " + curso + ", NIA: " + nia + ", Email:" + email + ", Libro prestado: " + librosPrestados + "]";
+        } else {
+            return "Estudiante[Nombre: " + nombre + ", Curso: " + curso + ", NIA: " + nia + ", Email:" + email + "]";
+        }
     }
 
     public static int obtTotalEst() {
