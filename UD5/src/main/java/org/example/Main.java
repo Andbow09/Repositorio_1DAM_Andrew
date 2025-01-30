@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.equipos.Equipo;
+import org.example.equipos.Persona;
+
 public class Main {
     public static void main(String[] args) {
 

@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.ArrayList;
+package org.example.biblioteca;
 
 public class Libro {
     private String titulo;
