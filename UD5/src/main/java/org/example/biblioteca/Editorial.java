@@ -6,11 +6,16 @@ public class Editorial {
     private String nombre;
     private String pais;
     private ArrayList<Libro> listaLibros;
+    private Libro libro;
 
     public Editorial(String nombre, String pais) {
         this.nombre = nombre;
         this.pais = pais;
         listaLibros = new ArrayList<>();
+    }
+
+    public void agregarLibro(Libro libro) {
+        listaLibros.add(libro);
     }
 
     public String getNombre() {
@@ -39,6 +44,6 @@ public class Editorial {
 
     @Override
     public String toString() {
-        return "Editorial [Nombre: " + nombre + ", Pais:" + pais + ", Lista de Libros: " + listaLibros + "]";
+        return "Editorial [Nombre: " + nombre + ", Pais: " + pais + ", Lista de Libros: " + listaLibros + "]";
     }
 }

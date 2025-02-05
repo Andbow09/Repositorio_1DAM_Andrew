@@ -1,0 +1,88 @@
+@startuml
+
+class Estudiante {
+    - static int cont_est
+    - static final String email_form
+    - String nombre
+    - String curso
+    - int nia
+    - String email
+    - ArrayList<Libro> librosPrestados
+    - Estudiante estudiantePrestado
+    - Libro libroPrestado
+
+    + Estudiante(String nombre)
+    + Estudiante(String nombre, String curso, String email)
+    + String getNombre()
+    + String getCurso()
+    + String getEmail()
+    + ArrayList<Libro> getLibrosPrestados()
+    + void setNombre(String nombre)
+    + void setCurso(String curso)
+    + void setEmail(String email)
+    + void setLibrosPrestados(ArrayList<Libro> librosPrestados)
+    + void anadirLibro(Libro libro)
+    + void eliminarLibro(Libro libro)
+    + Libro getLibroPrestado()
+    + void setLibroPrestado(Libro libroPrestado)
+    + String toString()
+    + static int obtTotalEst()
+    + static boolean form_val(String email)
+}
+
+class Libro {
+    - String titulo
+    - String autor
+    - static int cont_id
+    - static final String lib
+    - String id
+    - boolean disp
+    - static int lib_cant
+    - static int lib_disp
+    - Estudiante estudiantePrestado
+    - Editorial editorial
+
+    + Libro(String titulo, String autor)
+    + String calcularID(int cont_id)
+    + String getTitulo()
+    + String getAutor()
+    + void prestar(Estudiante estudiante, Libro libro)
+    + void devolver()
+    + boolean estaDisp()
+    + static int getTotalLibros()
+    + static int getLibrosDisponibles()
+    + String toString()
+}
+
+class Prestamo {
+    - Estudiante estudiante
+    - Libro libro
+    - LocalDateTime fechaPrestamo
+
+    + Prestamo(Estudiante estudiante, Libro libro, LocalDateTime fechaPrestamo)
+}
+
+class Editorial {
+    - String nombre
+    - String pais
+    - ArrayList<Libro> listaLibros
+    - Libro libro
+
+    + Editorial(String nombre, String pais)
+    + void agregarLibro(Libro libro)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getPais()
+    + void setPais(String pais)
+    + ArrayList<Libro> getListaLibros()
+    + void setListaLibros(ArrayList<Libro> listaLibros)
+    + String toString()
+}
+
+Estudiante "1" o-- "0..*" Libro : presta >
+  Estudiante "1" -- "0..*" Prestamo : realiza >
+  Libro "1" -- "1" Editorial : pertenece a >
+  Prestamo "1" -- "1" Libro : incluye >
+  Prestamo "1" -- "1" Estudiante : realizado por >
+
+@enduml

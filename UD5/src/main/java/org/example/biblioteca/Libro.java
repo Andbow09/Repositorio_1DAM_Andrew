@@ -1,5 +1,7 @@
 package org.example.biblioteca;
 
+import java.time.LocalDateTime;
+
 public class Libro {
     private String titulo;
     private String autor;
@@ -22,7 +24,7 @@ public class Libro {
         lib_cant++;
         lib_disp++;
         estudiantePrestado = null;
-        this.editorial = editorial;
+
     }
 
     public String calcularID(int cont_id) {
@@ -45,14 +47,17 @@ public class Libro {
         return autor;
     }
 
-    public void prestar(Estudiante estudiante) {
-        if (disp && estudiante.getLibrosPrestados().contains(this)) {
-            disp = false;
-            System.out.println("El libro '" + getTitulo() + "' ha sido prestado a " + estudiante.getNombre());
-            lib_disp--;
-            estudiantePrestado = estudiante;
+    public void prestar(Estudiante estudiante, Libro libro) {
+        if (!disp) {
+            System.out.println("El libro ya está prestado a " + estudiantePrestado.getNombre());
+        } else if (estudiante.getLibroPrestado() != null) {
+            System.out.println("El estudiante ya tiene un libro prestado.");
         } else {
-            System.out.println("El libro '" + getTitulo() + "' ya ha sido prestado.");
+            this.disp = false;
+            this.estudiantePrestado = estudiante;
+            estudiante.setLibroPrestado(this);
+            System.out.println("El libro '" + titulo + "' ha sido prestado a " + estudiante.getNombre());
+            Prestamo pres = new Prestamo(estudiante, libro, LocalDateTime.now());
         }
     }
 

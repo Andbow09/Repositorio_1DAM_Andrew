@@ -10,10 +10,8 @@ public class Estudiante {
     private int nia;
     private String email;
     private ArrayList<Libro> librosPrestados;
-
-//    public Estudiante estudiantePrestado() {
-//
-//    }
+    private Estudiante estudiantePrestado;
+    private Libro libroPrestado;
 
     public Estudiante(String nombre) {
         this.nombre = nombre;
@@ -43,6 +41,10 @@ public class Estudiante {
         return email;
     }
 
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -65,6 +67,14 @@ public class Estudiante {
 
     public void eliminarLibro(Libro libro) {
         librosPrestados.remove(libro);
+    }
+
+    public Libro getLibroPrestado() {
+        return libroPrestado;
+    }
+
+    public void setLibroPrestado(Libro libroPrestado) {
+        this.libroPrestado = libroPrestado;
     }
 
     @Override
