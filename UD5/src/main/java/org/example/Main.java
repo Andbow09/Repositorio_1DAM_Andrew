@@ -1,4 +1,4 @@
-package org.example.Practica1;
+package org.example;
 
 import org.example.biblioteca.Estudiante;
 import org.example.biblioteca.Libro;

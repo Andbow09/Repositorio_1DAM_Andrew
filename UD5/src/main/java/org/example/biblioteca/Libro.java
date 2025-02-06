@@ -6,7 +6,6 @@ public class Libro {
     private String titulo;
     private String autor;
     public static int cont_id = 0;
-    public static final String lib = "LIB";
     private String id;
     private boolean disp;
     private static int lib_cant;
@@ -18,7 +17,7 @@ public class Libro {
     public Libro(String titulo, String autor) {
         this.titulo = titulo;
         this.autor = autor;
-        id = lib + calcularID(cont_id);
+        id = calcularID();
         this.disp = true;
         cont_id++;
         lib_cant++;
@@ -27,16 +26,8 @@ public class Libro {
 
     }
 
-    public String calcularID(int cont_id) {
-        cont_id++;
-
-        if (cont_id < 10) {
-            return "00" + cont_id;
-        } else if (cont_id < 100 && cont_id >= 10) {
-            return "0" + cont_id;
-        }
-        String ci = Integer.toString(cont_id);
-        return ci;
+    public String calcularID() {
+        return String.format("LIB%03d", cont_id);
     }
 
     public String getTitulo() {

@@ -1,5 +1,4 @@
 package org.example.Practica1;
-
 import java.util.ArrayList;
 
 public class Cadena {
@@ -27,9 +26,8 @@ public class Cadena {
         return listaProgramas;
     }
 
-    public void agregarPrograma(String nombre, int temporadas, Empleado director) {
-//        Programa prog = new Programa(nombre, temporadas, director);
-//        listaProgramas.add(prog);
+    public void agregarPrograma(Programa prog) {
+        listaProgramas.add(prog);
     }
 
     @Override

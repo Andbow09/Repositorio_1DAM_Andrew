@@ -1,22 +1,17 @@
 package org.example.Practica1;
 
-import org.example.casa.Habitacion;
-
-import java.util.ArrayList;
-
 public class Empleado {
-    private static final String EP = "EP";
-    private static int cont = 0;
-    private static String id;
+    public static int cont = 1;
+    private String id;
     private String nombre;
-    private String cargo = "pte";
+    private String cargo;
     private Empleado director;
 
     public Empleado(String nombre, String cargo) {
         this.nombre = nombre;
         this.cargo = cargo;
         this.director = null;
-        id = EP + calcularID(cont);
+        id = calcularID();
         cont++;
     }
 
@@ -64,17 +59,8 @@ public class Empleado {
         this.director = director;
     }
 
-    public String calcularID(int cont) {
-        cont++;
-
-        if (cont < 10) {
-            return "00" + cont;
-        } else if (cont < 100) {
-            return "0" + cont;
-        }
-
-        String idd = Integer.toString(cont);
-        return idd;
+    public String calcularID() {
+        return String.format("EP%03d", cont);
     }
 
     @Override
