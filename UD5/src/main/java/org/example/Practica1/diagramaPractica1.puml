@@ -1,0 +1,90 @@
+@startuml
+class Cadena {
+  - String nombre
+  - ArrayList<Programa> listaProgramas
+
+  + Cadena(String nombre)
+  + setNombre(String nombre)
+  + getNombre(): String
+  + setListaProgramas(ArrayList<Programa> listaProgramas)
+  + getListaProgramas(): ArrayList<Programa>
+  + agregarPrograma(Programa prog)
+  + toString(): String
+}
+
+class Programa {
+  - String nombre
+  - Cadena cadena
+  - int temporadas
+  - ArrayList<Empleado> listaEmpleados
+  - ArrayList<Invitado> listaInvitados
+  - Empleado director
+
+  + Programa(String nombre, Cadena cadena, String director_nombre)
+  + getNombre(): String
+  + setNombre(String nombre)
+  + getCadena(): Cadena
+  + setCadena(Cadena cadena)
+  + getTemporadas(): int
+  + setTemporadas(int temporadas)
+  + getListaEmpleados(): ArrayList<Empleado>
+  + setListaEmpleados(ArrayList<Empleado> listaEmpleados)
+  + agregarEmpleado(String nombre, String cargo)
+  + mostrarEmpleados()
+  + getListaInvitados(): ArrayList<Invitado>
+  + setListaInvitados(ArrayList<Invitado> listaInvitados)
+  + agregarInvitado(String nombre, String profesion, int temporada)
+  + getDirector(): Empleado
+  + setDirector(Empleado director)
+  + invitadosTemporada(int temporada): int
+  + vecesInvitado(String nombre): int
+  + rastrearInvitado(String nombre)
+  + buscarInvitado(String nombre): boolean
+  + invitadoAntes(String nombre)
+  + toString(): String
+}
+
+class Empleado {
+  + static int cont = 1
+  - String id
+  - String nombre
+  - String cargo
+  - Empleado director
+
+  + Empleado(String nombre, String cargo)
+  + getNombre(): String
+  + setNombre(String nombre)
+  + getCargo(): String
+  + setCargo(String cargo)
+  + asignarCargo(String cargo)
+  + getDirector(): Empleado
+  + setDirector(Empleado director)
+  + calcularID(): String
+  + toString(): String
+}
+
+class Invitado {
+  - String nombre
+  - String profesion
+  - LocalDate fecha_visita
+  - int temporada
+
+  + Invitado(String nombre, String profesion, int temporada)
+  + getNombre(): String
+  + setNombre(String nombre)
+  + getProfesion(): String
+  + setProfesion(String profesion)
+  + getFecha_visita(): LocalDate
+  + setFecha_visita()
+  + getTemporada(): int
+  + setTemporada(int temporada)
+  + toString(): String
+}
+
+Cadena "1" -- "0..*" Programa : contiene
+Programa "1" -- "1" Cadena : pertenece a
+Programa "1" -- "0..*" Empleado : tiene
+Programa "1" -- "0..*" Invitado : invita
+Empleado "1" -- "0..1" Empleado : es dirigido por
+
+@enduml
