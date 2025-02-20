@@ -9,6 +9,10 @@ public abstract class Dispositivo {
         this.estado = false;
     }
 
+    public String getNombre() {
+        return this.nombre;
+    }
+
     public void setEstado(boolean estado) {
         this.estado = estado;
     }

@@ -45,6 +45,7 @@ public class Tienda {
                 }
 
                 break;
+
             //En caso de haber elegido PayPal.
             case "paypal":
                 //Introduce los datos de PayPal.
@@ -74,6 +75,7 @@ public class Tienda {
                 }
 
                 break;
+
             //En caso de haber elegido Bizum.
             case "bizum":
                 //Introduce los datos de Bizum.
@@ -105,6 +107,7 @@ public class Tienda {
                 }
 
                 break;
+
             //Si el metodo introducido no coincide con ninguno de los casos anteriores, este no será aceptado.
             default:
                 System.out.println("Método no aceptado.");
