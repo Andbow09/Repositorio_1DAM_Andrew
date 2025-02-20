@@ -1,0 +1,23 @@
+@startuml
+
+class Empleado {
+    + void realizarTarea()
+}
+
+class Desarrollador {
+    + void realizarTarea()
+}
+
+class Disenador {
+    + void realizarTarea()
+}
+
+class Gerente {
+    + void realizarTarea()
+}
+
+Empleado <|-- Desarrollador
+Empleado <|-- Disenador
+Empleado <|-- Gerente
+
+@enduml

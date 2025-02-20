@@ -1,0 +1,41 @@
+@startuml
+
+abstract class Suscripcion {
+    - String nombrePlan
+    - double precio
+    + Suscripcion(String, double)
+    + void mostrarInfo()
+    # abstract void obtenerBeneficios()
+    # abstract void obtenerPeriodoPrueba()
+}
+
+class PlanGratis {
+    + PlanGratis(String, double)
+    + void obtenerBeneficios()
+    + void obtenerPeriodoPrueba()
+}
+
+class PlanBasico {
+    + PlanBasico(String, double)
+    + void obtenerBeneficios()
+    + void obtenerPeriodoPrueba()
+}
+
+class PlanPremium {
+    + PlanPremium(String, double)
+    + void obtenerBeneficios()
+    + void obtenerPeriodoPrueba()
+}
+
+class PlanFamiliar {
+    + PlanFamiliar(String, double)
+    + void obtenerBeneficios()
+    + void obtenerPeriodoPrueba()
+}
+
+Suscripcion <|-- PlanGratis
+Suscripcion <|-- PlanBasico
+Suscripcion <|-- PlanPremium
+Suscripcion <|-- PlanFamiliar
+
+@enduml

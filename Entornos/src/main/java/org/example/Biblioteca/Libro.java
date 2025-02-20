@@ -2,6 +2,8 @@ package org.example.Biblioteca;
 
 /**
  * Clase libro, tiene un nombre, un autor, año de publicación y su disponibilidad.
+ * @author Andrew
+ * @version 1.0
  */
 public class Libro {
     private String titulo;
@@ -15,6 +17,7 @@ public class Libro {
      * @param titulo          (titulo del libro)
      * @param autor           (autor del libro)
      * @param anioPublicacion (año de publicación del libro)
+     * @since 1.0
      */
     public Libro(String titulo, String autor, int anioPublicacion) {
         this.titulo = titulo;
@@ -26,6 +29,7 @@ public class Libro {
     /**
      * Metodo que devuelve el título de un libro.
      * @return titulo
+     * @since 1.0
      */
     public String getTitulo() {
         return this.titulo;
@@ -34,6 +38,7 @@ public class Libro {
     /**
      * Metodo que modifica el título de un libro
      * @param titulo (asigna el título dado al título del libro)
+     * @since 1.0
      */
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -42,6 +47,7 @@ public class Libro {
     /**
      * Metodo que devuelve el autor de un libro
      * @return autor
+     * @since 1.0
      */
     public String getAutor() {
         return this.autor;
@@ -50,6 +56,7 @@ public class Libro {
     /**
      * Metodo que modifica el autor de un libro
      * @param autor (asigna el autor dado al autor del libro)
+     * @since 1.0
      */
     public void setAutor(String autor) {
         this.autor = autor;
@@ -58,6 +65,7 @@ public class Libro {
     /**
      * Metodo que devuelve el año de publicacion de un libro.
      * @return anioPublicacion
+     * @since 1.0
      */
     public int getAnioPublicacion() {
         return this.anioPublicacion;
@@ -66,6 +74,7 @@ public class Libro {
     /**
      * Metodo que modifica el año de publicacion de un libro.
      * @param anioPublicacion (asigna el año dado al año de publicacion del libro)
+     * @since 1.0
      */
     public void setAnioPublicacion(int anioPublicacion) {
         this.anioPublicacion = anioPublicacion;
@@ -74,6 +83,7 @@ public class Libro {
     /**
      * Metodo que devuelve la disponibilidad de un libro.
      * @return disponible
+     * @since 1.0
      */
     public boolean getDisponible() {
         return this.disponible;
@@ -82,6 +92,7 @@ public class Libro {
     /**
      * Metodo que modifica la disponibilidad de un libro
      * @param disponible (asigna el booleano dado al booleano de disponibilidad del libro)
+     * @since 1.0
      */
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
@@ -89,6 +100,7 @@ public class Libro {
 
     /**
      * Metodo que modifica el valor de disponible a false dado el caso.
+     * @since 1.0
      */
     public void prestarLibro() {
         if (!this.disponible) { //Si el valor de disponible es false, significará que el libro ya ha sido prestado y nos lo dirá.
@@ -100,6 +112,7 @@ public class Libro {
 
     /**
      * Metodo que modifica el valor de disponible a true dado el caso
+     * @since 1.0
      */
     public void devolverLibro() {
         if (this.disponible) { //Si el valor de disponible es true, significará que el libro ya ha sido devuelto y nos lo dirá.
@@ -111,6 +124,7 @@ public class Libro {
 
     /**
      * Muestra toda la información de un libro.
+     * @since 1.0
      */
     public void mostrarInformacion() {
         System.out.println("Título: " + getTitulo());

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.example.Biblioteca","l":"Biblioteca"},{"p":"org.example.Biblioteca","l":"Libro"},{"p":"org.example.Biblioteca","l":"Main"},{"p":"org.example","l":"Main"},{"p":"org.example.Biblioteca","l":"Usuario"}];updateSearchResults();
