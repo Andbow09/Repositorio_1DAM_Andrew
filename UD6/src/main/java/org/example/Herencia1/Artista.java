@@ -3,7 +3,7 @@ package org.example.Herencia1;
 public class Artista extends Persona{
     private String genero;
 
-    public Artista(String nombre, int edad, String genero) {
+    public Artista(String nombre, int edad, String genero) throws EdadValida {
         super(nombre, edad);
         this.genero = genero;
     }
