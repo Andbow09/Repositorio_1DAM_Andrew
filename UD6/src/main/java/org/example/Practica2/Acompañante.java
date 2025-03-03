@@ -29,6 +29,10 @@ public class Acompañante extends MutxamelFC implements FuncionesIntegrantes {
         return super.getNombre();
     }
 
+    public String getParentesco() {
+        return this.parentesco;
+    }
+
     /**
      * Simula que el acompañante anima al equipo.
      */

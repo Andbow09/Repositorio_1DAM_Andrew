@@ -4,7 +4,7 @@ package org.example.Practica2;
  * Clase abstracta que representa a un integrante del equipo Mutxamel FC.
  */
 public abstract class MutxamelFC implements FuncionesIntegrantes {
-    private String nombre; // Nombre del integrante.
+    String nombre; // Nombre del integrante.
     private int edad; // Edad del integrante.
 
     /**
@@ -25,11 +25,19 @@ public abstract class MutxamelFC implements FuncionesIntegrantes {
         return this.nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     /**
      * Obtiene la edad del integrante.
      * @return Edad del integrante.
      */
     public int getEdad() {
         return this.edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 }

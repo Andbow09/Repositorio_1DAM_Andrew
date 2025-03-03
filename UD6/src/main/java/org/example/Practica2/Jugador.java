@@ -25,7 +25,10 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes, Accione
         if (listaDorsales.contains(dorsal)) {
             throw new MismoDorsal("El dorsal " + dorsal + " ya está siendo ocupado.");
         }
+        this.categoria = categoria;
+        this.dorsal = dorsal;
         listaDorsales.add(dorsal);
+        this.posicion = posicion;
     }
 
     /**
@@ -35,6 +38,49 @@ public class Jugador extends MutxamelFC implements FuncionesIntegrantes, Accione
     @Override
     public String getNombre() {
         return super.getNombre();
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        super.setNombre(nombre);
+    }
+
+    @Override
+    public int getEdad() {
+        return super.getEdad();
+    }
+
+    @Override
+    public void setEdad(int edad) {
+        super.setEdad(edad);
+    }
+
+    public Equipos getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = Equipos.valueOf(categoria.toUpperCase());
+    }
+
+    public int getDorsal() {
+        return dorsal;
+    }
+
+    public void setDorsal(int dorsal) throws MismoDorsal{
+        if (!listaDorsales.contains(dorsal)) {
+            this.dorsal = dorsal;
+        } else {
+            throw new MismoDorsal("El dorsal " + dorsal + " ya está siendo ocupado.");
+        }
+    }
+
+    public Posiciones getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(String posicion) {
+        this.posicion = Posiciones.valueOf(posicion.toUpperCase());
     }
 
     /**

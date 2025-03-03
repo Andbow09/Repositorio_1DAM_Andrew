@@ -1,7 +1,5 @@
 package org.example.Practica2;
 
-import java.util.Arrays;
-
 /**
  * Clase que representa a un entrenador del equipo Mutxamel FC.
  */
