@@ -6,45 +6,43 @@ public class Cliente {
     private String usuario;
     private String contrasena;
     private Pedido pedido;
-    private boolean promociones;
+    private boolean promocionesAplicadas;
 
     public Cliente(String usuario, String contrasena) {
         this.usuario = usuario;
         this.contrasena = contrasena;
         this.pedido = null;
-        this.promociones = false;
+        this.promocionesAplicadas = false;
     }
 
     public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public String getContrasena() {
         return contrasena;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public boolean isPromocionesAplicadas() {
+        return promocionesAplicadas;
     }
 
     public void crearPedido() {
-
+        this.pedido = new Pedido();
     }
 
-    public void insertarProducto() {
-
-    }
-
-    public double importePedido() {
-        return 1.0;
+    public void insertarProducto(String producto) {
+        Producto prod = Producto.valueOf(producto.toUpperCase());
+        pedido.insertarPedido(prod);
     }
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
         return Objects.equals(usuario, cliente.usuario);
@@ -52,7 +50,7 @@ public class Cliente {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(usuario);
+        return Objects.hash(usuario);
     }
 
     @Override

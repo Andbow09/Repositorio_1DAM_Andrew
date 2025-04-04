@@ -30,11 +30,19 @@ public class Bus {
 
         StringBuilder sb = new StringBuilder();
 
+//        sb.append("-".repeat(117)).append("\n");
+//        sb.append(" ".repeat(n1)).append("_______________  ").append(" ".repeat(100 - n1)).append("|\n");
+//        sb.append(" ".repeat(n1)).append("|__|__|__|__|__|___ ").append(" ".repeat(TAM - n1)).append("|\n");
+//        sb.append(" ".repeat(n1)).append("|   IES MUTXAMEL  |)").append(" ".repeat(TAM - n1)).append("|\n");
+//        sb.append(" ".repeat(n1)).append("|~~~@~~~~~~~~~@~~~|)").append(" ".repeat(TAM - n1)).append("|\n");
+//        sb.append("_".repeat(117));
+
         sb.append("-".repeat(117)).append("\n");
-        sb.append(" ".repeat(n1)).append("_______________  ").append(" ".repeat(100 - n1)).append("|\n");
-        sb.append(" ".repeat(n1)).append("|__|__|__|__|__|___ ").append(" ".repeat(TAM - n1)).append("|\n");
-        sb.append(" ".repeat(n1)).append("|   IES MUTXAMEL  |)").append(" ".repeat(TAM - n1)).append("|\n");
-        sb.append(" ".repeat(n1)).append("|~~~@~~~~~~~~~@~~~|)").append(" ".repeat(TAM - n1)).append("|\n");
+        sb.append(" ".repeat(n1)).append(",,,,             ").append(" ".repeat(100 - n1)).append("|''''''   |'''''|   |, ~~~~  |   |'''''|\n");
+        sb.append(" ".repeat(n1)).append("|,,|,,,,,,,,,,,,,,, ").append(" ".repeat(TAM - n1)).append("|         |     |   | ',     |   |     |\n");
+        sb.append(" ".repeat(n1)).append("|               | -)").append(" ".repeat(TAM - n1)).append("|         |     |   |   ',   |   |     |\n");
+        sb.append(" ".repeat(n1)).append("|``|``````````````` ").append(" ".repeat(TAM - n1)).append("|         |     |   |     ', |   |     |\n");
+        sb.append(" ".repeat(n1)).append("````                ").append(" ".repeat(TAM - n1)).append("|,,,,,,   |,,,,,|   |       '|   |,,,,,|\n");
         sb.append("_".repeat(117));
 
         return sb.toString();
