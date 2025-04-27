@@ -2,10 +2,13 @@ package org.example.Practica1;
 
 import java.util.Objects;
 
+/**
+ * Clase cliente en la plataforma MERCADAM.
+ */
 public class Cliente {
     private String usuario;
     private String contrasena;
-    private Pedido pedido;
+    private Pedido pedido; // Pedido actual
     private boolean promocionesAplicadas;
 
     public Cliente(String usuario, String contrasena) {
@@ -31,10 +34,18 @@ public class Cliente {
         return promocionesAplicadas;
     }
 
+    /**
+     * Crea un nuevo pedido para el cliente.
+     */
     public void crearPedido() {
         this.pedido = new Pedido();
     }
 
+    /**
+     * Inserta un producto al pedido del cliente.
+     *
+     * @param producto Nombre del producto en formato String.
+     */
     public void insertarProducto(String producto) {
         Producto prod = Producto.valueOf(producto.toUpperCase());
         pedido.insertarPedido(prod);
@@ -42,8 +53,12 @@ public class Cliente {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Cliente cliente = (Cliente) o;
         return Objects.equals(usuario, cliente.usuario);
     }

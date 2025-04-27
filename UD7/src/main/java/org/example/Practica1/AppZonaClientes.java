@@ -2,20 +2,32 @@ package org.example.Practica1;
 
 import java.util.*;
 
+/**
+ * Clase principal que se utiliza como lobby para el cliente
+ * para de esa forma poder realizar todo tipo de acciones.
+ */
 public class AppZonaClientes {
-    static Scanner scanner = new Scanner(System.in);
-    static Cliente cliente;
+    static Scanner scanner = new Scanner(System.in); // Scanner para leer entradas del usuario
+    static Cliente cliente; // Cliente autenticado
 
     public static void main(String[] args) {
+        // Inicializa Mercadam, genera un cliente de prueba y muestra la lista de clientes
         Mercadam mercadam = new Mercadam();
         mercadam.generarClientes();
         System.out.println("Cliente de prueba: " + mercadam.getListaClientes());
 
+        // Lógica principal de autenticación, compra y gestión de pedido
         autenticacion(mercadam.getListaClientes());
         iniciarCompra();
         gestionarPedido();
     }
 
+    /**
+     * Realiza la autenticación del cliente permitiendo únicamente 3 intentos.
+     * Si falla, termina el programa.
+     *
+     * @param clientes Lista de clientes registrados en MERCADAM.
+     */
     public static void autenticacion(List<Cliente> clientes) {
         System.out.println("\n*** COMPRA ONLINE DE MERCADAM ***");
 
@@ -25,6 +37,7 @@ public class AppZonaClientes {
             System.out.print("Contraseña: ");
             String contrasena = scanner.next();
 
+            // Busca cliente que coincida con usuario y contraseña
             for (Cliente cli : clientes) {
                 if (cli.getUsuario().equals(usuario) && cli.getContrasena().equals(contrasena)) {
                     System.out.println("\nBienvenid@ " + cli.getUsuario() + "!");
@@ -42,6 +55,9 @@ public class AppZonaClientes {
         System.exit(0);
     }
 
+    /**
+     * Inicia la creación de un pedido y permite añadir productos.
+     */
     public static void iniciarCompra() {
         cliente.crearPedido();
         System.out.println("\nAñade productos a tu lista de la compra:");
@@ -54,7 +70,10 @@ public class AppZonaClientes {
 
             try {
                 cliente.insertarProducto(producto);
-                System.out.println("\nHas añadido " + producto.toUpperCase() + "con un precio de " + Producto.valueOf(producto.toUpperCase()).getPrecio() + "€. Importe total: " + cliente.getPedido().getImporte() + "€. ¿Añadir más? [S/N]: ");
+                System.out.println("\nHas añadido " + producto.toUpperCase() + " con un precio de " +
+                        Producto.valueOf(producto.toUpperCase()).getPrecio() +
+                        "€. Importe total: " + cliente.getPedido().getImporte() +
+                        "€. ¿Añadir más? [S/N]: ");
                 continuar = scanner.next().equalsIgnoreCase("S");
             } catch (IllegalArgumentException e) {
                 System.out.println("ERROR: Producto no válido!");
@@ -62,6 +81,9 @@ public class AppZonaClientes {
         }
     }
 
+    /**
+     * Permite aplicar promociones, ver resumen o terminar el pedido.
+     */
     public static void gestionarPedido() {
         boolean terminar = false;
 
@@ -97,16 +119,26 @@ public class AppZonaClientes {
         }
     }
 
+    /**
+     * Muestra un resumen del carrito.
+     *
+     * @param ordenado Indica si se debe ordenar por cantidad de productos.
+     */
     public static void mostrarResumen(boolean ordenado) {
         System.out.println("\nRESUMEN DE TU CARRITO:");
+
         if (ordenado) {
             cliente.getPedido().mostrarProductosOrdenados();
         } else {
             cliente.getPedido().mostrarProductos();
         }
+
         System.out.printf("IMPORTE TOTAL: %.2f€\n", cliente.getPedido().getImporte());
     }
 
+    /**
+     * Imprime todos los productos disponibles en la tienda.
+     */
     public static void imprimirProductos() {
         System.out.println();
         for (Producto prod : Producto.values()) {

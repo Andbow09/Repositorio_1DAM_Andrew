@@ -1,5 +1,8 @@
 package org.example.Practica1;
 
+/**
+ * Clase Enum que consta de todos los productos disponibles para poder comprar.
+ */
 public enum Producto {
     MANZANAS(2.30),
     PAN(1.0),
