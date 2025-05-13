@@ -1,0 +1,36 @@
+@startuml
+
+rectangle "Landing Page" {
+    LandingPage --> ConsoleApp : Descarga la aplicación
+}
+
+rectangle "Aplicación de Escritorio" {
+    ConsoleApp --> UserSession
+    ConsoleApp --> UserService
+    ConsoleApp --> TripService
+    ConsoleApp --> ReviewService
+}
+
+rectangle "Lógica de Negocio" {
+    class UserService
+    class TripService
+    class ReviewService
+}
+
+rectangle "Base de Datos (Independiente)" {
+    class User
+    class Trip
+    class Booking
+    class Payment
+    class Bill
+    class Review
+}
+
+ConsoleApp -[dashed]-> BaseDeDatos : No conexión directa
+BaseDeDatos --> Administrador : Gestión manual
+
+UserService --> ArchivoLocal : Guardado temporal
+TripService --> ArchivoLocal
+ReviewService --> ArchivoLocal
+
+@enduml

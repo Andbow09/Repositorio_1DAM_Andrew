@@ -1,0 +1,97 @@
+@startuml
+
+class User {
+    - int userID
+    - String name
+    - String email
+    - String password
+    - boolean isDriver
+    - List<Booking> bookings
+    + void addBooking(Booking booking)
+    + void cancelBooking(int bookingID)
+}
+
+class Trip {
+    - int id
+    - User driver
+    - String origin
+    - String destination
+    - List<User> passengers
+    - LocalDateTime dateTime
+    - int seatsAvailable
+    - double price
+    - boolean completed
+    + boolean hasSeats()
+    + void reserveSeat()
+    + void releaseSeat()
+}
+
+class Booking {
+    - int bookingID
+    - User user
+    - Trip trip
+    - boolean cancelled
+    + void cancel()
+}
+
+class Payment {
+    - int id
+    - User payer
+    - Bill bill
+    - double amount
+    - LocalDateTime timestamp
+}
+
+class Bill {
+    - int id
+    - User recipient
+    - double amount
+    - LocalDateTime issueDate
+}
+
+class Review {
+    - int id
+    - User author
+    - User recipient
+    - Trip trip
+    - int rating
+    - String comment
+    - LocalDate date
+}
+
+class TripService {
+    - List<Trip> trips
+    + List<Trip> getTrips()
+    + void addTrip(Trip trip)
+    + List<Trip> getAvailableTrips()
+    + void bookTrip(Trip trip, User user)
+    + void cancelBooking(User user)
+}
+
+class UserService {
+    - List<User> users
+    + User login(String email, String password)
+    + void register(String name, String email, String password, boolean isDriver)
+}
+
+class UserSession {
+    - User currentUser
+    + void setCurrentUser(User user)
+    + User getCurrentUser()
+}
+
+User "1" --> "*" Booking
+Trip "1" --> "*" Booking
+Booking "1" --> "1" Trip
+Booking "1" --> "1" User
+Payment "1" --> "1" Bill
+Payment "1" --> "1" User
+Bill "1" --> "1" User
+Review "1" --> "1" User : author
+Review "1" --> "1" User : recipient
+Review "1" --> "1" Trip
+TripService "1" --> "*" Trip
+UserService "1" --> "*" User
+UserSession "1" --> "1" User
+
+@enduml
