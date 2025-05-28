@@ -1,4 +1,4 @@
-module org.example.ud8 {
+open module org.example.ud8 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,9 +10,10 @@ module org.example.ud8 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires java.sql;
     requires static lombok;
-
-    opens org.example.ud8 to javafx.fxml;
+    requires com.google.gson;
+    requires java.sql;
+    requires jdk.jdi;
+    requires org.checkerframework.checker.qual;
     exports org.example.ud8;
 }
